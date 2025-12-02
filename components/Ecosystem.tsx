@@ -92,83 +92,85 @@ const Ecosystem: React.FC = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
 
-          <div className="flex gap-6 animate-[scroll_40s_linear_infinite] hover:pause">
-            {[
-              { code: 'us', name: 'United States' },
-              { code: 'gb', name: 'United Kingdom' },
-              { code: 'de', name: 'Germany' },
-              { code: 'il', name: 'Israel' },
-              { code: 'bd', name: 'Bangladesh' },
-              { code: 'fr', name: 'France' },
-              { code: 'jp', name: 'Japan' },
-              { code: 'cn', name: 'China' },
-              { code: 'in', name: 'India' },
-              { code: 'br', name: 'Brazil' },
-              { code: 'ca', name: 'Canada' },
-              { code: 'au', name: 'Australia' },
-              { code: 'sg', name: 'Singapore' },
-              { code: 'ae', name: 'UAE' },
-              { code: 'za', name: 'South Africa' },
-              { code: 'mx', name: 'Mexico' },
-              { code: 'es', name: 'Spain' },
-              { code: 'it', name: 'Italy' },
-              { code: 'nl', name: 'Netherlands' },
-              { code: 'se', name: 'Sweden' },
-              { code: 'kr', name: 'South Korea' },
-              { code: 'pk', name: 'Pakistan' },
-              { code: 'ng', name: 'Nigeria' },
-              { code: 'eg', name: 'Egypt' },
-              { code: 'tr', name: 'Turkey' },
-              { code: 'th', name: 'Thailand' },
-              { code: 'ph', name: 'Philippines' },
-              { code: 'vn', name: 'Vietnam' },
-              { code: 'id', name: 'Indonesia' },
-              { code: 'my', name: 'Malaysia' },
-              { code: 'ar', name: 'Argentina' },
-              { code: 'cl', name: 'Chile' },
-              { code: 'co', name: 'Colombia' },
-              { code: 'pe', name: 'Peru' },
-              { code: 'pl', name: 'Poland' },
-              { code: 'ro', name: 'Romania' },
-              { code: 'cz', name: 'Czech Republic' },
-              { code: 'gr', name: 'Greece' },
-              { code: 'pt', name: 'Portugal' },
-              { code: 'no', name: 'Norway' },
-              { code: 'dk', name: 'Denmark' },
-              { code: 'fi', name: 'Finland' },
-              { code: 'ie', name: 'Ireland' },
-              { code: 'nz', name: 'New Zealand' },
-              { code: 'sa', name: 'Saudi Arabia' },
-              { code: 'kw', name: 'Kuwait' },
-              { code: 'qa', name: 'Qatar' },
-              { code: 'us', name: 'United States' },
-              { code: 'gb', name: 'United Kingdom' },
-              { code: 'de', name: 'Germany' },
-              { code: 'il', name: 'Israel' },
-              { code: 'bd', name: 'Bangladesh' },
-              { code: 'fr', name: 'France' },
-              { code: 'jp', name: 'Japan' },
-              { code: 'cn', name: 'China' },
-              { code: 'in', name: 'India' },
-              { code: 'br', name: 'Brazil' },
-            ].map((country, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 flex flex-col items-center gap-2 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all group"
-              >
-                <div className="w-16 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <img
-                    src={`/src/country-img/${country.code}.svg`}
-                    alt={country.name}
-                    className="w-full h-full object-contain rounded"
-                  />
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-6 animate-[scroll_80s_linear_infinite] hover:pause">
+              {[
+                { code: 'us', name: 'United States' },
+                { code: 'gb', name: 'United Kingdom' },
+                { code: 'de', name: 'Germany' },
+                { code: 'il', name: 'Israel' },
+                { code: 'bd', name: 'Bangladesh' },
+                { code: 'fr', name: 'France' },
+                { code: 'jp', name: 'Japan' },
+                { code: 'cn', name: 'China' },
+                { code: 'in', name: 'India' },
+                { code: 'br', name: 'Brazil' },
+                { code: 'ca', name: 'Canada' },
+                { code: 'au', name: 'Australia' },
+                { code: 'sg', name: 'Singapore' },
+                { code: 'ae', name: 'UAE' },
+                { code: 'za', name: 'South Africa' },
+                { code: 'mx', name: 'Mexico' },
+                { code: 'es', name: 'Spain' },
+                { code: 'it', name: 'Italy' },
+                { code: 'nl', name: 'Netherlands' },
+                { code: 'se', name: 'Sweden' },
+                { code: 'kr', name: 'South Korea' },
+                { code: 'pk', name: 'Pakistan' },
+                { code: 'ng', name: 'Nigeria' },
+                { code: 'eg', name: 'Egypt' },
+                { code: 'tr', name: 'Turkey' },
+                { code: 'th', name: 'Thailand' },
+                { code: 'ph', name: 'Philippines' },
+                { code: 'vn', name: 'Vietnam' },
+                { code: 'id', name: 'Indonesia' },
+                { code: 'my', name: 'Malaysia' },
+                { code: 'ar', name: 'Argentina' },
+                { code: 'cl', name: 'Chile' },
+                { code: 'co', name: 'Colombia' },
+                { code: 'pe', name: 'Peru' },
+                { code: 'pl', name: 'Poland' },
+                { code: 'ro', name: 'Romania' },
+                { code: 'cz', name: 'Czech Republic' },
+                { code: 'gr', name: 'Greece' },
+                { code: 'pt', name: 'Portugal' },
+                { code: 'no', name: 'Norway' },
+                { code: 'dk', name: 'Denmark' },
+                { code: 'fi', name: 'Finland' },
+                { code: 'ie', name: 'Ireland' },
+                { code: 'nz', name: 'New Zealand' },
+                { code: 'sa', name: 'Saudi Arabia' },
+                { code: 'kw', name: 'Kuwait' },
+                { code: 'qa', name: 'Qatar' },
+                { code: 'us', name: 'United States' },
+                { code: 'gb', name: 'United Kingdom' },
+                { code: 'de', name: 'Germany' },
+                { code: 'il', name: 'Israel' },
+                { code: 'bd', name: 'Bangladesh' },
+                { code: 'fr', name: 'France' },
+                { code: 'jp', name: 'Japan' },
+                { code: 'cn', name: 'China' },
+                { code: 'in', name: 'India' },
+                { code: 'br', name: 'Brazil' },
+              ].map((country, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 flex flex-col items-center gap-2 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all group"
+                >
+                  <div className="w-16 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <img
+                      src={`/src/country-img/${country.code}.svg`}
+                      alt={country.name}
+                      className="w-full h-full object-contain rounded"
+                    />
+                  </div>
+                  <div className="text-xs font-bold text-slate-700 whitespace-nowrap">{country.name}</div>
                 </div>
-                <div className="text-xs font-bold text-slate-700 whitespace-nowrap">{country.name}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -184,6 +186,13 @@ const Ecosystem: React.FC = () => {
         }
         .hover\:pause:hover {
           animation-play-state: paused;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
 
