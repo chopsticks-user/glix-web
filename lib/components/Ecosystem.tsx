@@ -170,7 +170,7 @@ const Ecosystem: React.FC = () => {
                                     <div
                                         className="w-16 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <img
-                                            src={`/src/country-img/${country.code}.svg`}
+                                            src={`/country-img/${country.code}.svg`}
                                             alt={country.name}
                                             className="w-full h-full object-contain rounded"
                                         />
