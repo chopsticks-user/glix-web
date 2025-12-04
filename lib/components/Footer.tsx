@@ -1,8 +1,13 @@
-import React from 'react';
+"use client";
+
+import useWaitlistFormState from "@/lib/hooks/useWaitlistFormState";
+
 import {ArrowRight, Facebook, Github, Globe, Linkedin, Twitter} from 'lucide-react';
 import Link from 'next/link';
 
 const Footer: React.FC = () => {
+    const [state, action, pending] = useWaitlistFormState();
+
     return (
         <footer className="bg-white border-t border-slate-200 pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-6">
@@ -28,17 +33,24 @@ const Footer: React.FC = () => {
                         <div className="max-w-sm">
                             <label className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 block">Subscribe
                                 to our newsletter</label>
-                            <div className="flex gap-2">
+                            <form className="flex gap-2" action={action}>
                                 <input
                                     type="email"
+                                    name="email"
                                     placeholder="Enter your email"
                                     className="bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm flex-grow focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                                    defaultValue={state.data.email}
+                                    required
                                 />
                                 <button
-                                    className="bg-slate-900 text-white rounded-lg px-4 py-2 hover:bg-slate-800 transition-colors">
+                                    className="bg-slate-900 text-white rounded-lg px-4 py-2 hover:bg-slate-800 transition-colors"
+                                    type="submit"
+                                    disabled={pending}
+                                >
                                     <ArrowRight size={16}/>
                                 </button>
-                            </div>
+                            </form>
+                            <p aria-live="polite">{state?.message}</p> {/* todo: styling */}
                         </div>
                     </div>
 
