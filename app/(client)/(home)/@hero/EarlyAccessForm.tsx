@@ -1,12 +1,20 @@
 "use client";
 
-import useWaitlistFormState from "@/app/(client)/(routes)/join-waitlist/useWaitlistFormState";
+import {addToWaitlist} from "@/services/waitlist";
 
-import React from "react";
+import React, {useActionState} from "react";
 import {ArrowRight} from 'lucide-react';
 
 export default function EarlyAccessForm() {
-    const [state, action, pending] = useWaitlistFormState();
+    const [state, action, pending] = useActionState(
+        addToWaitlist, {
+            success: false,
+            message: "",
+            data: {
+                email: "",
+            },
+        }
+    );
 
     return <>
         <form

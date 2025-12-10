@@ -1,12 +1,21 @@
 "use client";
 
-import useWaitlistFormState from "@/app/(client)/(routes)/join-waitlist/useWaitlistFormState";
+import {addToWaitlist} from "@/services/waitlist";
 
 import {ArrowRight, Facebook, Github, Globe, Linkedin, Twitter} from 'lucide-react';
 import Link from 'next/link';
+import React, {useActionState} from "react";
 
-const Footer: React.FC = () => {
-    const [state, action, pending] = useWaitlistFormState();
+export default function Footer() {
+    const [state, action, pending] = useActionState(
+        addToWaitlist, {
+            success: false,
+            message: "",
+            data: {
+                email: "",
+            },
+        }
+    );
 
     return (
         <footer className="bg-white border-t border-slate-200 pt-16 pb-8">
@@ -134,5 +143,3 @@ const SocialLink: React.FC<{ icon: React.ReactNode }> = ({icon}) => (
         {icon}
     </a>
 );
-
-export default Footer;

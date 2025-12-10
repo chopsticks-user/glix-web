@@ -1,9 +1,19 @@
 "use client";
 
-import useWaitlistFormState from "@/app/(client)/(routes)/join-waitlist/useWaitlistFormState";
+import {addToWaitlist} from "@/services/waitlist";
+
+import {useActionState} from "react";
 
 const JoinWaitlistForm = () => {
-    const [state, action, pending] = useWaitlistFormState();
+    const [state, action, pending] = useActionState(
+        addToWaitlist, {
+            success: false,
+            message: "",
+            data: {
+                email: "",
+            },
+        }
+    );
 
     return <form className="space-y-4" action={action}>
         <input

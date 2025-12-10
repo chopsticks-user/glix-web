@@ -1,5 +1,6 @@
 import Users from "./collections/Users/config";
 import Media from "./collections/Media";
+import env from "@/lib/env";
 
 import sharp from "sharp";
 import {lexicalEditor} from "@payloadcms/richtext-lexical";
@@ -12,6 +13,8 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
+    serverURL: env.url.server,
+
     admin: {
         user: Users.slug,
         importMap: {
@@ -20,10 +23,20 @@ export default buildConfig({
         routes: {
             account: "/me",
         },
+        // components: {
+        //     views: {
+        //         login: {
+        //             Component: "@/components/dashboard/Login",
+        //         }
+        //     }
+        // },
     },
 
     routes: {
         admin: "/dashboard",
+        api: "/api",
+        graphQL: "/graphql",
+        graphQLPlayground: "/graphql-playground",
     },
 
     // If you'd like to use Rich Text, pass your editor here
@@ -40,7 +53,7 @@ export default buildConfig({
     // Whichever Database Adapter you're using should go here
     // Mongoose is shown as an example, but you can also use Postgres
     db: mongooseAdapter({
-        url: process.env.MONGODB_URI || "",
+        url: process.env.MONGODB_GLIX_URI || "",
     }),
 
     typescript: {

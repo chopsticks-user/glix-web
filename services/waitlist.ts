@@ -1,22 +1,16 @@
 "use server";
 
 import db from "@/lib/mongodb";
+import {ActionState} from "@/lib/types";
 
 import {z} from 'zod';
 
 const WaitlistedCustomerSchema = z.object({
     email: z.email(),
 });
+type WaitlistFormState = ActionState<{ email: string }>;
 
-interface WaitlistFormState {
-    success: boolean;
-    message: string;
-    data: {
-        email: string,
-    },
-}
-
-export default async function addToWaitlist(_prevState: WaitlistFormState, formData: FormData)
+export async function addToWaitlist(_prev: WaitlistFormState, formData: FormData)
     : Promise<WaitlistFormState> {
     const result = WaitlistedCustomerSchema.safeParse({
         email: formData.get("email"),

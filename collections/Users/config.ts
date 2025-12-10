@@ -28,10 +28,10 @@ const Users: CollectionConfig = {
         verify: false, // Quang Cap: turn this on when email verification is available
         maxLoginAttempts: 5,
         lockTime: 600 * 1000,
-        loginWithUsername: {
-            allowEmailLogin: true,
-            requireEmail: false,
-        },
+        // loginWithUsername: {
+        //     allowEmailLogin: true,
+        //     requireEmail: false,
+        // },
     },
     fields: [
         {
